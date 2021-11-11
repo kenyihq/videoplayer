@@ -8,13 +8,41 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Hola mundo</h1>
-    <button class="button" id="backward"></button>
-    <button class="button" id="forward"></button>
-    <button class="button" id="play"></button>
-    <button class="button" hidden id="pause"></button>
-    <button>avanzar 10 segundos</button>
-    <video id="video" controls muted src="./videos/lofi.mp4" width="400px"></video>
+    <div class="wrapper">
+        <div class="player">
+            <!-- Boton de retroceder 10 segundos -->
+            <button
+                class="button"
+                id="backward"
+                ariea-label="Retroceder 10 segundos"
+                title="Retroceder 10 segundos"></button>
+            <!-- Boton de Play -->
+            <button
+                class="button"
+                id="play"
+                aria-label="Play"
+                title="Play"></button>
+            <!-- Boton de Pause -->
+            <button
+                class="button"
+                hidden
+                id="pause"
+                aria-label="Pause"
+                title="Pause"></button>
+            <!-- Boton de adelatar 10 segundos -->
+            <button
+                class="button"
+                id="forward"
+                aria-label="Adelantar 10 segundos"
+                title="Adelantar 10 segundos"></button>
+            <!-- Video -->
+            <video
+                id="video"
+                controls muted
+                src="./videos/lofi.mp4"
+                width="400px"></video>
+        </div>
+    </div>
     
     <script>
         const $video = document.querySelector('#video');
@@ -25,9 +53,9 @@
         $pause.addEventListener('click', handlePause);
 
         function handlePlay() {
+            $video.play();
             $play.hidden = true;
             $pause.hidden = false;
-            console.log('play');
         }
 
         function handlePause() {
