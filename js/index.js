@@ -5,6 +5,7 @@ const $play = document.querySelector('#play');
 const $pause = document.querySelector('#pause');
 const $backward = document.querySelector('#backward');
 const $forward = document.querySelector('#forward');
+const $progress = document.querySelector('#progress');
 
 // Eventos
 
@@ -36,20 +37,18 @@ function handleFordward() {
     $video.currentTime += 10;
 }
 
-const $progress = document.querySelector('#progress');
+// Evento para obtener la barra de progreso del video
 $video.addEventListener('loadedmetadata', handleLoaded);
-$video.addEventListener('timeupdate', handleTimeUpdate);
-
 function handleLoaded() {
     $progress.max = $video.duration; 
 }
-
+// Evento para obtener el tiempo actual del video
+$video.addEventListener('timeupdate', handleTimeUpdate);
 function handleTimeUpdate() {
     $progress.value = $video.currentTime;
 }
-
+// Evento para obtener el tiempo en la barra de progreso
 $progress.addEventListener('input', handleInput);
-
 function handleInput() {
     $video.currentTime = $progress.value;
 }
