@@ -14,7 +14,20 @@
     <button class="button" id="play"></button>
     <button class="button" id="pause"></button>
     <button>avanzar 10 segundos</button>
-    <video controls autoplay muted src="./videos/lofi.mp4"></video>
+    <video id="video" controls autoplay muted src="./videos/lofi.mp4" width="400px"></video>
     
+    <script>
+        const $video = document.querySelector('#video');
+        const $play = document.querySelector('#play');
+        const $pause = document.querySelector('#pause');
+
+        $play.addEventListener('click', handlePlay);
+
+        function handlePlay() {
+            $video.play()
+            console.log('play');
+        }
+    </script>
+
 </body>
 </html>
